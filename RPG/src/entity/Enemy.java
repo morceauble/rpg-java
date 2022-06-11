@@ -22,7 +22,8 @@ public class Enemy extends Entity {
 	static int vie_max;
 	
 	static int nombre_enemy;
-
+	
+	 public Boolean nomoreEnemy;
 	
 	 protected Timer Timer_range;
 	 
@@ -54,6 +55,7 @@ public class Enemy extends Entity {
 		Enemy.gamestate = gs;
 		initVariables();
 		initImage();
+		nomoreEnemy = false;
 	}
 	
 	private void initVariables() {
@@ -382,6 +384,10 @@ public class Enemy extends Entity {
 					tabenemy_viemax.remove(i);
 					nombre_enemy--;
 					i--;
+					
+					if(getnombre_enemy() <=0)
+						nomoreEnemy = true;
+					else nomoreEnemy = false;
 			}
 		}
 		

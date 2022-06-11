@@ -74,6 +74,8 @@ public class GameState extends JPanel implements Runnable{
 	
 	menuprincipal mp = new menuprincipal(this);
 	
+	portal portail = new portal(this);
+	
 	int FPS = 60;
 	
 	
@@ -137,10 +139,7 @@ public class GameState extends JPanel implements Runnable{
 	}
 
 	
-	public void initNiveau0() {
-		
-		 
-	}
+	
 	
 	@Override
 	public void run() {
@@ -211,6 +210,10 @@ public class GameState extends JPanel implements Runnable{
 		if(isShopping()) 
 			updateShopping();
 		finjeu();
+		
+		
+		
+		
 		}
 		
 		
@@ -297,6 +300,8 @@ public class GameState extends JPanel implements Runnable{
 		PNJ.render(g2);
 		enemy.render(g2);
 		item.render(g2);
+		portail.render(g2);
+		
 		Map.rendertop(g2);
 		gui.render(g2);
 		
@@ -368,10 +373,21 @@ public class GameState extends JPanel implements Runnable{
 		return 0;
 		}
 
+	private Boolean isinportal() {
+		if(player.getX() > portail.getX() && 
+				player.getX() < portail.getX() + TileSize && 
+				player.getY() > portail.getY() && 
+				player.getY() < portail.getY() + 2*TileSize) {
+			return true;
+		}
+		return false;
+	}
 	
 	
 	private void changermap() {
-		if(enemy.getnombre_enemy() <=0 && Map.fin == false)
+		if(enemy.nomoreEnemy && Map.fin == false)
+			
+			if(isinportal())
 			chargermap("suivant");
 		
 	}
@@ -421,6 +437,7 @@ public class GameState extends JPanel implements Runnable{
 		
 		 Map = new map(this,s);
 		
+		 portail.setCoor(-100, -100);
 		 
 		if(!Map.fin) {
 			
@@ -485,6 +502,9 @@ public class GameState extends JPanel implements Runnable{
 			
 			
 			enemy.suppEnemy();
+			
+			if(enemy.nomoreEnemy)
+				portail.setCoor(15*TileSize, 10*TileSize);
 		}
 		
 		}
@@ -530,10 +550,6 @@ public class GameState extends JPanel implements Runnable{
 		
 		if(ismap) {
 			//maison
-			int i = Map.getOrdre();
-			
-			System.out.println("map.getordre() :" + i);
-			
 		ismap = false;
 		
 		pos_x = player.getX();
@@ -557,6 +573,10 @@ public class GameState extends JPanel implements Runnable{
 			String s = "map" + Integer.toString(i);
 		Map = new map(this,s);
 		ismap = true;
+		
+		
+		
+		
 		player.setX(pos_x);
 		player.setY(pos_y + TileSize); 
 		 interactionporte = false;
