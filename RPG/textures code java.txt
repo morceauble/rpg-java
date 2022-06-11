@@ -1,0 +1,17 @@
+bottom
+T Terre
+S Stone
+g grass_flowerpink
+p oak_planks
+
+mid
+D Diamant
+O oak_sapling
+A acacia_sapling
+1 oak_door_top
+2 oak_door_bottom
+L acacia_log
+C chest
+
+top
+F azalea_leaves

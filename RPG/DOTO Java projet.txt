@@ -1,0 +1,8 @@
+-refaire les collisions pour que ça prenne tout
+
+-changer la façon dont on render la map(tableau d'image) : init pour le if T alors image_terre,
+et render un tab avec toutes les images.
+
+-changer items(car bug après map0..)
+
+-changer chargermap(avec setOrdre(0))
