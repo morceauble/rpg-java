@@ -62,6 +62,12 @@ public class Player extends Entity{
 	 public Boolean initimage;
 	 
 	 int time_sec;
+	 
+	 
+	 BufferedImage player_up;
+	 BufferedImage player_down;
+	 BufferedImage player_left;
+	 BufferedImage player_right;
 	
 	 ArrayList<String> tabItem = new ArrayList<String>();
 	 ArrayList<Integer> tabnbItem = new ArrayList<Integer>();
@@ -116,7 +122,14 @@ public class Player extends Entity{
 	private void initImage(){
 		try{
 			String basePath = new File("").getAbsolutePath();
-			image_player = ImageIO.read(new File(basePath+"/res/img/player/player.png"));
+			
+			
+			player_up = ImageIO.read(new File(basePath+"/res/img/player/perso_up.png"));
+			player_left = ImageIO.read(new File(basePath+"/res/img/player/perso_left.png"));
+			player_right = ImageIO.read(new File(basePath+"/res/img/player/perso_right.png"));
+			player_down = ImageIO.read(new File(basePath+"/res/img/player/perso_down.png"));
+			
+			image_player = player_up;
 		}
 		catch(IOException e) {
 			e.printStackTrace();		
@@ -196,6 +209,8 @@ public class Player extends Entity{
 				down = false;
 				left = false;
 				right = false;
+				
+				image_player = player_up;
 		}
 		else if(keyhandler.downPressed == true) {
 			y+=speed;
@@ -205,6 +220,8 @@ public class Player extends Entity{
 			
 			left = false;
 			right = false;
+			
+			image_player = player_down;
 		}
 		else if(keyhandler.leftPressed == true) {
 			x-=speed;
@@ -214,6 +231,7 @@ public class Player extends Entity{
 			down = false;
 
 			right = false;
+			image_player = player_left;
 		}
 		else if(keyhandler.rightPressed == true) {
 			x+=speed;
@@ -221,8 +239,8 @@ public class Player extends Entity{
 			up = false;
 			down = false;
 			left = false;
+			image_player = player_right;
 		}
-		//System.out.print("x player : " + x + " y player : " + y + '\n');
 	}
 		
 	
