@@ -614,8 +614,7 @@ public int findpositionelement(String s) {
 				
 				removeWeaponDurability();
 				
-				//gamestate.getGui().setDurability( false);
-				gamestate.getGui().setDurability( true);
+				gamestate.getGui().setDurability(true);
 				gamestate.getTimer().resettime_sec_Player_attack();
 				
 			return true;

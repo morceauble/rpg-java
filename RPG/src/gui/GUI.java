@@ -213,6 +213,8 @@ public class GUI {
 			text = "Outil : 		Permet de casser différents matériaux";
 		
 		g.setFont(font);
+		
+		//text_ permet de faire la distinction entre chaque ligne//
 			for(int j = 0;j < text.length();j++) {
 				char c = text.charAt(j);
 				
@@ -523,11 +525,11 @@ public class GUI {
 	
 	 
 	private void enemy_number(Graphics2D g) {
-		int n = gamestate.getenemy().getnombre_enemy();
-		String s = InttoString(n);
+		int nb_enemy = gamestate.getenemy().getnombre_enemy();
+		String s = InttoString(nb_enemy);
 		g.setColor(Color.red);
 		g.setFont(font);
-		g.drawString("Reste : "+s, 1000, 10);
+		g.drawString("Reste : "+s, 1000, 15);
 	}
 	 
 	private void pnj_background(Graphics2D g) {

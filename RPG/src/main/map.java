@@ -499,9 +499,6 @@ public class map extends JPanel {
 	
 	//écriture de la map où le joueur est dans un fichier "edit", puis chargement de la map suivante choisie//
 	public void effacermap() {
-		System.out.println();
-		System.out.println("Compteur init : " + compteurinit);
-		System.out.println("tabfirstime.size():" + tabfirstime.size());
 		
 		//Si il y a un nouveau fichier//
 		if(tabfirstime.size()>compteurinit) {

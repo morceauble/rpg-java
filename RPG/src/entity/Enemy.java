@@ -262,7 +262,7 @@ public class Enemy extends Entity {
 					break;
 				default:
 					speed_x = 0;
-					//tabenemy.set(i,image_gragouille);
+					
 					break;
 				}
 				tabenemy_x.set(i, tabenemy_x.get(i) - speed_x);
