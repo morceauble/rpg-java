@@ -86,9 +86,9 @@ public class Player extends Entity{
 		x = 100;
 		y = 100;
 		speed = 1;
-		vie = 10000;
+		vie = 20;
 		atq = 2;
-		vie_max = 10000;
+		vie_max = 20;
 		
 		durability_stoneaxe = 200;
 		durability_stoneaxe_total = 200;
@@ -110,7 +110,7 @@ public class Player extends Entity{
 		invinsibilitytime = 1000;
 		
 		
-		atq_stone_sword=1000;
+		atq_stone_sword=2;
 		atq_stone_axe=3;
 		atq_iron_sword = 4;
 		atq_golden_sword = 6;
