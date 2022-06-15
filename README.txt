@@ -8,6 +8,8 @@ Certaines interactions ne peuvent se faire que lorsque le bon objet est sélecti
 
 Vous pouvez vous soigner avec des aliments(le plus commun étant la pomme).
 
+Vous pouvez mettre la souris sur les items de la barre d'inventaire pour plus d'informations.
+
 
 [Commandes]:
 
@@ -24,11 +26,11 @@ Vous pouvez vous soigner avec des aliments(le plus commun étant la pomme).
   
  Marchant/Inventaire de fabrication:
   E pour l'inventaire de fabrication
-  F pour interagir avec les PNJ
+  F pour interagir avec les PNJ(carré bleu)
   Clique gauche pour accepter l'échange(avec un PNJ/inventaire de fabrication)
 
  Actions:
-  Clique gauche pour attaquer
+  Clique gauche pour attaquer(si le joueur peut attaquer alors carré vert, sinon carré rouge)
   Clique droit pour interagir(lorsqu'il y a une indication)
   Echap pour mettre en pause le jeu
 
