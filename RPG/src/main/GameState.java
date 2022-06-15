@@ -515,15 +515,18 @@ public class GameState extends JPanel implements Runnable{
 		
 		case(0):
 			
-			/*enemy.addEnemy("zombie", 50, 50);
+			enemy.addEnemy("zombie", 50, 50);
 		 	enemy.addEnemy("zombie", 150, 50);
-		 	enemy.addEnemy("zombie", 50, 200);*/
+		 	enemy.addEnemy("zombie", 50, 200);
 		 	enemy.addEnemy("gragouille", 500, 200);
 		 	enemy.addEnemy("gragouille", 100, 50);
 			break;
 		case(1):
 			enemy.addEnemy("zombie", 50, 50);
 		enemy.addEnemy("gragouille", 500, 200);
+	 	enemy.addEnemy("gragouille", 100, 50);
+	 	enemy.addEnemy("zombie", 50, 200);
+	 	enemy.addEnemy("gragouille", 500, 200);
 	 	enemy.addEnemy("gragouille", 100, 50);
 			break;
 		
@@ -915,12 +918,12 @@ public class GameState extends JPanel implements Runnable{
 			
 		if(			player.getX()>=item.getX(i) 
 				&& 	player.getY()>=item.getY(i)
-				&& 	player.getX()<=item.getX(i)+TileSize
-				&& 	player.getY()<=item.getY(i)+TileSize
+				&& 	player.getX()<=item.getX(i)+2*TileSize
+				&& 	player.getY()<=item.getY(i)+2*TileSize
 				
 				
-				&&	player.getX()+TileSize>=item.getX(i)
-				&&	player.getY()+TileSize>=item.getY(i)	
+				&&	player.getX()+2*TileSize>=item.getX(i)
+				&&	player.getY()+2*TileSize>=item.getY(i)	
 					) {
 			
 			player.addItem(item.getTabString(i), 1);

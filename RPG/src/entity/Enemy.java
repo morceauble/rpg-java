@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.Timer;
@@ -119,8 +120,11 @@ public class Enemy extends Entity {
 	private void updateEnemy_outofmap() {
 		for(int i = 0;i<tabenemy.size();i++) {
 			if(tabenemy_x.get(i) < 0 || tabenemy_x.get(i)>32*39 || tabenemy_y.get(i)> 1080 || tabenemy_y.get(i)<0) {
-				tabenemy_x.set(i, 300);
-				tabenemy_y.set(i, 300);
+				Random r = new Random();
+				int x = r.nextInt(300 + 50) + 1;
+				int y = r.nextInt(300 + 50) + 1;
+				tabenemy_x.set(i, x);
+				tabenemy_y.set(i, y);
 			}
 		}
 	}

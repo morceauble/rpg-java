@@ -131,9 +131,10 @@ public class GUI {
 	
 	private void vie(String m,Graphics2D g) {
 		String vie = InttoString(gamestate.getplayer().getVie());
+		String viemax = InttoString(gamestate.getplayer().getVieMax());
 		 g.setFont ( font );
 		 g.setColor (Color.RED);
-		 g.drawString ( m + vie, 400,20);
+		 g.drawString ( m + vie + "/" + viemax , 400,20);
 	}
 	
 	
