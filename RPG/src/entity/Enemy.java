@@ -264,27 +264,29 @@ public class Enemy extends Entity {
 				for(int i = 0; i < tabenemy.size();i++) {
 					
 					
-					if(tabenemy.get(i) == image_gragouille) {
+					if(tabenemy.get(i) == image_gragouille ||tabenemy.get(i) == image_gragouille_mirror) {
+						
 				switch(isPlayerinRange(i)){ 
 				
 				
 				case(0):
-					speed_x = -3*speed;
+					speed_x = 3*speed;
 					tabenemy.set(i,image_gragouille_mirror);
 					break;
 				case(1):
-					speed_x = 2*speed;
+					speed_x = -2*speed;
 					tabenemy.set(i,image_gragouille);
 					break;
 				default:
 					speed_x = 0;
+					tabenemy.set(i,image_gragouille);
 					
 					break;
 				}
-				
+				if(speed_x!=0)
 				System.out.println("SPEEEED : " + speed_x);
-				tabenemy_x.set(i, tabenemy_x.get(i) - speed_x);
-				tabenemy_y.set(i, tabenemy_y.get(i) - speed_y);
+				tabenemy_x.set(i, tabenemy_x.get(i) + speed_x);
+				tabenemy_y.set(i, tabenemy_y.get(i) + speed_y);
 				
 				gamestate.getTimer().resettime_sec_Enemy_move();
 				}
