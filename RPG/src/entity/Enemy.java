@@ -98,8 +98,8 @@ public class Enemy extends Entity {
 			}
 		else if (s == "zombie") {
 			tabenemy.add(image_zombie);
-			tabenemy_vie.add(40);
-			tabenemy_viemax.add(40);
+			tabenemy_vie.add(6);
+			tabenemy_viemax.add(10);
 		}
 		tabenemy_x.add(x);
 		tabenemy_y.add(y);
@@ -108,8 +108,22 @@ public class Enemy extends Entity {
 		System.out.println(" Enemy add " + s + "x :" + tabenemy_x+ "y: " + tabenemy_y+ "vie : " + tabenemy_vie );
 		
 	}
-
 	
+	public void healZombie(int vie,int index) {
+		if(tabenemy_vie.get(index) + vie>tabenemy_viemax.get(index))
+			 tabenemy_vie.set(index,tabenemy_viemax.get(index));
+		else
+		tabenemy_vie.set(index,tabenemy_vie.get(index) + vie);
+	}
+
+	private void updateEnemy_outofmap() {
+		for(int i = 0;i<tabenemy.size();i++) {
+			if(tabenemy_x.get(i) < 0 || tabenemy_x.get(i)>32*39 || tabenemy_y.get(i)> 1080 || tabenemy_y.get(i)<0) {
+				tabenemy_x.set(i, 300);
+				tabenemy_y.set(i, 300);
+			}
+		}
+	}
 	
 	private void addmissile(int i) {
 	
@@ -128,6 +142,7 @@ public class Enemy extends Entity {
 				if(tabenemy.get(i) == image_gragouille) {
 				if(isPlayerinRange(i)!=-1) {
 					
+					System.out.println("HAHAHA");
 					
 					missile_nombre++;
 					
@@ -147,6 +162,7 @@ public class Enemy extends Entity {
 			}
 			tabSpeed.add(speed_);
 			gamestate.getTimer().resettime_sec_Enemy_missiletimerate();
+			System.out.println("speed missile: " + speed_);
 			}
 		}
 		}
@@ -265,6 +281,8 @@ public class Enemy extends Entity {
 					
 					break;
 				}
+				
+				System.out.println("SPEEEED : " + speed_x);
 				tabenemy_x.set(i, tabenemy_x.get(i) - speed_x);
 				tabenemy_y.set(i, tabenemy_y.get(i) - speed_y);
 				
@@ -315,6 +333,7 @@ public class Enemy extends Entity {
 	private void update_enemy() {
 		move_gragouille();
 		move_zombie();
+		updateEnemy_outofmap();
 	}
 	
 	private void update_missile() {
@@ -414,6 +433,15 @@ public class Enemy extends Entity {
 	}
 	public void setnombre_enemy(int i) {
 		nombre_enemy = i;
+	}
+	
+	public String getTypeenemy(int index) {
+		if(tabenemy.get(index) == image_zombie)
+			return "zombie";
+		else if (tabenemy.get(index) == image_gragouille) 
+			return "gragouille";
+		return null;
+		
 	}
 	
 }

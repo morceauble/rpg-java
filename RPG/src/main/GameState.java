@@ -515,30 +515,40 @@ public class GameState extends JPanel implements Runnable{
 		
 		case(0):
 			
-			enemy.addEnemy("zombie", 50, 50);
+			/*enemy.addEnemy("zombie", 50, 50);
 		 	enemy.addEnemy("zombie", 150, 50);
-		 	enemy.addEnemy("zombie", 50, 200);
+		 	enemy.addEnemy("zombie", 50, 200);*/
+		 	enemy.addEnemy("gragouille", 500, 200);
+		 	enemy.addEnemy("gragouille", 100, 50);
 			break;
 		case(1):
 			enemy.addEnemy("zombie", 50, 50);
+		enemy.addEnemy("gragouille", 500, 200);
+	 	enemy.addEnemy("gragouille", 100, 50);
 			break;
 		
 		case(2):
 			enemy.addEnemy("zombie", 150, 150);
+		enemy.addEnemy("gragouille", 500, 200);
+	 	enemy.addEnemy("gragouille", 100, 50);
 			break;
 		case(3):
 			enemy.addEnemy("gragouille", 200, 200);
 			enemy.addEnemy("zombie", 150, 150);
+			enemy.addEnemy("gragouille", 500, 200);
+		 	enemy.addEnemy("gragouille", 100, 50);
 			break;
 		default:
 			enemy.addEnemy("zombie", 50, 50);
+		 	enemy.addEnemy("gragouille", 100, 50);
 		
 		
 	}}
 	
 	private void interaction_bed() {
 		gui.setinteract(true);
-		if(kh.interactionPressed) {
+		if(souris.rightPressed) {
+			souris.rightPressed = false;
 			player.setVie(player.getVieMax());
 			
 		}
@@ -831,6 +841,10 @@ public class GameState extends JPanel implements Runnable{
 				&& player.getY()<=enemy.getY(i)+TileSize) {
 			
 			checkPlayerStatus();
+			
+			if(enemy.getTypeenemy(i) == "zombie") {
+				enemy.healZombie(2, i);
+			}
 			
 			}
 		}

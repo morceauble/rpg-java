@@ -110,7 +110,7 @@ public class Player extends Entity{
 		invinsibilitytime = 1000;
 		
 		
-		atq_stone_sword=2;
+		atq_stone_sword=1000;
 		atq_stone_axe=3;
 		atq_iron_sword = 4;
 		atq_golden_sword = 6;
